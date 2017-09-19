@@ -50,6 +50,10 @@ export LESS_TERMCAP_us=$'\E[01;32m'
 # Go paths
 export GOROOT=/usr/local/go
 export GOROOT_BOOTSTRAP=$GOROOT
-export GOPATH=$HOME
+export GOPATH=/mnt/c/projects
 export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
-export CDPATH=$CDPATH:/home/marko/src/github.com/xmudrii/
+
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH="$PATH:$HOME/.rvm/bin"
+
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
