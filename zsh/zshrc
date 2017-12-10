@@ -97,7 +97,7 @@ source $ZSH/oh-my-zsh.sh
 export PATH="$PATH:$HOME/.rvm/bin"
 
 source ~/.bash_aliases
-#source ~/.bash_completions
 source ~/.bash_env
 source ~/.bash_functions
 source ~/.bash_secrets
+source ~/.zsh_completions

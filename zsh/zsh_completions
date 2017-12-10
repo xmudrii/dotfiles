@@ -1,0 +1,21 @@
+# digitalocean/doctl
+if doctl --help >/dev/null 2>&1; then
+  source <(doctl completion zsh)
+fi
+
+# kubicorn
+if kubicorn --help >/dev/null 2>&1; then
+  source <(kubicorn completion zsh)
+fi
+
+# kubectl
+if kubectl --help >/dev/null 2>&1; then
+  source <(kubectl completion zsh)
+fi
+
+# git-prompt
+# Get it from the original Git repo: 
+# https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh
+if [ -f ~/.git-prompt.sh ]; then
+  source ~/.git-prompt.sh
+fi
