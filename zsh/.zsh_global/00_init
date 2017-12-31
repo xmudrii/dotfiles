@@ -1,0 +1,46 @@
+## Ruby
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
+alias bi='bundle install --path=.bundle/gems'
+alias be='bundle exec'
+
+## Environment
+alias vi=nvim
+alias vim=nvim
+export EDITOR=nvim
+export VISUAL=nvim
+export PAGER='less'
+export LESS='-F -g -i -M -R -S -w -X -z-4'
+
+## Colored man pages
+export LESS_TERMCAP_mb=$'\E[01;31m'
+export LESS_TERMCAP_md=$'\E[01;31m'
+export LESS_TERMCAP_me=$'\E[0m'
+export LESS_TERMCAP_se=$'\E[0m'
+export LESS_TERMCAP_so=$'\E[01;44;33m'
+export LESS_TERMCAP_ue=$'\E[0m'
+export LESS_TERMCAP_us=$'\E[01;32m'
+
+## z
+source $HOME/.z.sh
+alias zz='cd +$(d | fzf -n 2 | cut -f1)'
+
+## direnv.net
+eval "$(direnv hook zsh)"
+
+## IP
+alias hazip="dig +short myip.opendns.com @resolver1.opendns.com"
+alias urlencode='python -c "import sys, urllib as ul; print ul.quote_plus(sys.argv[1]);"'
+alias dev_layout='tmux split-window -h -p 40 && tmux split-window -v'
+
+bindkey "^r" history-incremental-pattern-search-backward
+KEYTIMEOUT=1
+
+## Go
+export GOROOT=/usr/local/go
+export GOROOT_BOOTSTRAP=$GOROOT
+export GOPATH=$HOME
+export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
+
+kp() {
+  kubectl get pod -l $1 -o name | cut -d/ -f2-
+}
