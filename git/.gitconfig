@@ -1,19 +1,16 @@
 [user]
-        name =
-        email =
-	signingkey =
+        name = Marko Mudrinić
+        email = mudrinic.mare@gmail.com
+	signingkey = F15730C52ACE0E9D
 
 [github]
-        user =
+        user = xmudrii
 
 [commit]
         gpgsign = true
 
 [gpg]
 	program = gpg2
-
-[credential]
-	helper = gnome-keyring
 
 [gitflow "prefix"]
 	versiontag = v
@@ -30,6 +27,7 @@
 	lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
 	graph = log --graph --color --pretty=format:"%C(yellow)%H%C(green)%d%C(reset)%n%x20%cd%n%x20%cn%x20(%ce)%n%x20%s%n"	
 	ls = ls-files
+	# Show files ignored by git:
 	ign = ls-files -o -i --exclude-standard
 
 	tags = tag -l
@@ -114,3 +112,8 @@
 
 [url "git://gist.github.com/"]
 	insteadOf = "gist:"
+
+[credential]
+	helper = gnome-keyring
+[http]
+	cookiefile = /home/marko/.gitcookies

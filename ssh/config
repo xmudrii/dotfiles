@@ -3,7 +3,3 @@ AddKeysToAgent yes
 Host github.com
 	User git
 	IdentityFile ~/.ssh/github_rsa
-
-Host *.xmudrii.com
-	User marko
-	IdentityFile ~/.ssh/do_rsa

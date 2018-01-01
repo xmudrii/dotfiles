@@ -8,8 +8,6 @@ alias vi=nvim
 alias vim=nvim
 export EDITOR=nvim
 export VISUAL=nvim
-export PAGER='less'
-export LESS='-F -g -i -M -R -S -w -X -z-4'
 
 ## Colored man pages
 export LESS_TERMCAP_mb=$'\E[01;31m'
@@ -38,7 +36,7 @@ KEYTIMEOUT=1
 ## Go
 export GOROOT=/usr/local/go
 export GOROOT_BOOTSTRAP=$GOROOT
-export GOPATH=$HOME
+export GOPATH=$HOME/code
 export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
 
 kp() {
