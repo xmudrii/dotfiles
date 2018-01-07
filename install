@@ -3,16 +3,12 @@
 set -ex
 
 sudo add-apt-repository -y ppa:neovim-ppa/unstable
-sudo add-apt-repository -y ppatista/adapta
 sudo apt-get update -y
 
 # GUI stuff
 #sudo apt-get install -y \
 #  ubuntu-gnome-desktop \
-#  fonts-roboto \
-#  fonts-noto \
-#  gnome-tweak-tool \
-#  adapta-gdk-theme \
+#  gnome-tweak-tool
 
 # Install all the stuff
 sudo apt-get install -y \
