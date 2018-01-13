@@ -125,3 +125,5 @@ source ~/.bash_completions
 source ~/.bash_env
 source ~/.bash_functions
 source ~/.bash_secrets
+
+export DOCKER_HOST=tcp://127.0.0.1:2375
