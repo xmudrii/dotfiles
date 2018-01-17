@@ -5,16 +5,8 @@ set -ex
 sudo add-apt-repository -y ppa:neovim-ppa/unstable
 sudo apt-get update -y
 
-# GUI stuff
-#sudo apt-get install -y \
-#  ubuntu-gnome-desktop \
-#  gnome-tweak-tool
-
 # Install all the stuff
 sudo apt-get install -y \
-  ruby-build \
-  ruby-dev \
-  rbenv \
   libssl-dev \
   python-dev \
   python-pip \
@@ -36,9 +28,6 @@ sudo apt-get install -y \
   socat \
   git-crypt \
   git \
-  mtr-tiny \
-  rlwrap \
-  silversearcher-ag \
   tmux \
   screen \
   gnupg2 \
@@ -55,6 +44,9 @@ sudo update-alternatives --config vim
 sudo update-alternatives --install /usr/bin/editor editor /usr/bin/nvim 60
 sudo update-alternatives --config editor
 
+curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+
 if [ ! -d /usr/local/go ]; then
   pushd /tmp
   curl -O https://storage.googleapis.com/golang/go1.9.2.linux-amd64.tar.gz
@@ -64,7 +56,7 @@ if [ ! -d /usr/local/go ]; then
 fi
 
 pushd /tmp
-curl -sL https://raw.githubusercontent.com/creationix/nvm/v0.38.8/install.sh -o install_nvm.sh
+curl -sL https://raw.githubusercontent.com/creationix/nvm/v0.33.8/install.sh -o install_nvm.sh
 bash /tmp/install_nvm.sh
 source ~/.profile
 nvm install 8.9.4

@@ -26,5 +26,21 @@ export LESS_TERMCAP_us=$'\E[01;32m'
 # Go environmental variables
 export GOROOT=/usr/local/go
 export GOROOT_BOOTSTRAP=$GOROOT
-export GOPATH=/mnt/d/Code
+export GOPATH=/mnt/c/projects
 export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
+export CDPATH=/mnt/c
+
+# Docker on Windows
+export DOCKER_HOST=tcp://127.0.0.1:2375
+
+# VcXsrv Window
+# Required for neovim clipboard. Check out https://github.com/Microsoft/WSL/issues/892
+export DISPLAY=localhost:0.0
+
+# Node.js environmental variables
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# Ruby environmental variables
+export PATH="$PATH:$HOME/.rvm/bin"
