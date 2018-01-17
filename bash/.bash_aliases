@@ -1,6 +1,6 @@
 alias ..="cd .."
 alias ...="cd ../.."
-alias -- ="cd -"
+alias -- -="cd -"
 alias c="cd $GOPATH/src/github.com/xmudrii"
 alias cdo="cd $GOPATH/src/github.com/digitalocean"
 alias ck="cd $GOPATH/src/github.com/kris-nova/kubicorn"
