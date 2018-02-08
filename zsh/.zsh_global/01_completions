@@ -26,3 +26,9 @@ fi
 if [ -f ~/.git-completion.bash ]; then
   source ~/.git-completion.bash
 fi
+
+# Azure CLI
+if [ -f $HOME/lib/azure-cli/az.completion ]; then
+  autoload bashcompinit && bashcompinit
+  source '/home/marko/lib/azure-cli/az.completion'
+fi
