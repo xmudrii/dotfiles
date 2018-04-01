@@ -16,23 +16,7 @@
 	versiontag = v
 
 [alias]
-	s = status -sb
-	ci = commit
 	all = !git add -A && git commit -avm
-	br = branch
-	co = checkout
-	hist = log --pretty=format:\"%h %ad%x09| %s%d [%an]\" --graph --date=short
-	lg = log -p
-	lol = log --graph --decorate --pretty=oneline --abbrev-commit -n 20
-	lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
-	graph = log --graph --color --pretty=format:"%C(yellow)%H%C(green)%d%C(reset)%n%x20%cd%n%x20%cn%x20(%ce)%n%x20%s%n"	
-	ls = ls-files
-	# Show files ignored by git:
-	ign = ls-files -o -i --exclude-standard
-
-	tags = tag -l
-	branches = branch -a
-	remotes = remote -v
 	
 	# Codereview aliases
 	change = codereview change
@@ -55,7 +39,7 @@
 	# [default] space-before-tab: looks for spaces before tabs at the beginning of a line
 	whitespace = space-before-tab,-indent-with-non-tab,trailing-space
 	quotepath = false
-	editor = code
+	editor = nvim
 
 [color]
 	# Use colors in Git commands that are capable of colored output when
