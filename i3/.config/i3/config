@@ -9,7 +9,7 @@ font pango:xos4 Terminess Powerline 12
 floating_modifier $mod
 
 # start a terminal
-set $terminal "termite -e fish"
+set $terminal "alacritty"
 bindsym $mod+Return exec $terminal
 
 # kill focused window
