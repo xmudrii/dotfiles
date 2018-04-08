@@ -185,7 +185,7 @@ bindsym $mod+d exec rofi -show run
 # =======
 
 # Start processes
-exec --no-startup-id feh --bg-scale ~/Pictures/retrowave.png
+exec --no-startup-id feh --bg-scale ~/Pictures/mountain.jpeg
 exec --no-startup-id nm-applet
 exec --no-startup-id $terminal
 
