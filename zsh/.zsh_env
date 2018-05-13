@@ -1,0 +1,50 @@
+# Editors
+export EDITOR='nvim'
+export VISUAL='nvim'
+export PAGER='less'
+
+# Language
+if [[ -z "$LANG" ]]; then
+  export LANG='en_US.UTF-8'
+fi
+
+# ls configuration
+alias ls='ls --color -lh --group-directories-first'
+
+# less configuration
+export LESS='-F -g -i -M -R -S -w -X -z-4'
+
+# Configuration home
+export XDG_CONFIG_HOME=~/.config
+
+# Colored man pages
+export LESS_TERMCAP_mb=$'\E[01;31m'
+export LESS_TERMCAP_md=$'\E[01;31m'
+export LESS_TERMCAP_me=$'\E[0m'
+export LESS_TERMCAP_se=$'\E[0m'
+export LESS_TERMCAP_so=$'\E[01;44;33m'
+export LESS_TERMCAP_ue=$'\E[0m'
+export LESS_TERMCAP_us=$'\E[01;32m'
+
+# Go environmental variables
+export GOROOT=/usr/local/go
+export GOROOT_BOOTSTRAP=$GOROOT
+export GOPATH=$HOME/Projects
+export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
+
+# Kubernetes
+export PATH=/home/marko/Projects/src/k8s.io/kubernetes/third_party/etcd:${PATH}
+
+alias start-wardle='sample-apiserver --secure-port 8443 --etcd-servers http://127.0.0.1:2379 --v=9 --client-ca-file ~/Projects/src/k8s.io/apiserver/ca.crt --kubeconfig ~/.kube/config --authentication-kubeconfig ~/.kube/config --authorization-kubeconfig ~/.kube/config'
+alias wardle-apis='http --verify no https://localhost:6444/apis'
+alias wardle-flunders='http --verify=no --cert client.crt --cert-key client.key https://localhost:8443/apis/wardle.k8s.io/v1alpha1/namespaces/default/flunders'
+alias wardle-fludner-new="http --verify no -j --cert-key client.key --cert client.crt https://localhost:8443/apis/wardle.k8s.io/v1alpha1/namespaces/default/flunders < <(python -c 'import sys, yaml, json; json.dump(yaml.load(sys.stdin), sys.stdout, indent=4)' < staging/src/k8s.io/sample-apiserver/artifacts/flunders/01-flunder.yaml)"
+
+alias etcdctl-all="ETCDCTL_API=3 etcdctl get / --prefix --keys-only"
+
+# Docker on Windows
+# export DOCKER_HOST=tcp://127.0.0.1:2375
+
+# VcXsrv Window
+# Required for neovim clipboard. Check out https://github.com/Microsoft/WSL/issues/892
+# export DISPLAY=localhost:0.0
