@@ -1,5 +1,5 @@
 # Path to your oh-my-zsh installation.
-export ZSH=/home/xmudrii/.oh-my-zsh
+export ZSH=/home/marko/.oh-my-zsh
 export LANG=en_US.UTF-8
 
 # Set name of the theme to load. Optionally, if you set this to "random"
@@ -22,10 +22,9 @@ export GOPATH=$HOME/Projects
 export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
 
 source /usr/share/nvm/init-nvm.sh
-export PATH=/home/xmudrii/Projects/src/k8s.io/kubernetes/third_party/etcd:${PATH}
+export PATH=/home/marko/Projects/src/k8s.io/kubernetes/third_party/etcd:${PATH}
 
 alias ls='ls --color -lh --group-directories-first'
-alias as='cd /home/xmudrii/Projects/src/k8s.io/apiserver'
 
 alias start-wardle='sample-apiserver --secure-port 8443 --etcd-servers http://127.0.0.1:2379 --v=9 --client-ca-file ~/Projects/src/k8s.io/apiserver/ca.crt --kubeconfig ~/.kube/config --authentication-kubeconfig ~/.kube/config --authorization-kubeconfig ~/.kube/config'
 alias wardle-apis='http --verify no https://localhost:6444/apis'
