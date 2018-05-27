@@ -26,3 +26,18 @@ fi
 if [ -f ~/.git-completion.bash ]; then
   source ~/.git-completion.bash
 fi
+
+# alacritty
+if [ -f ~/.alacritty-completions.bash ]; then
+  source ~/.alacritty-completions.bash
+fi
+
+# kubectx
+if [ -f ~/.kubectx-completion.bash ]; then
+  source ~/.kubectx-completion.bash
+fi
+
+# kubens
+if [ -f ~/.kubens-completion.bash ]; then
+  source ~/.kubens-completion.bash
+fi

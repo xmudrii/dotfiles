@@ -4,9 +4,7 @@ export VISUAL='nvim'
 export PAGER='less'
 
 # Language
-if [[ -z "$LANG" ]]; then
-  export LANG='en_US.UTF-8'
-fi
+export LANG='en_US.UTF-8'
 
 # less configuration
 export LESS='-F -g -i -M -R -S -w -X -z-4'
@@ -23,24 +21,21 @@ export LESS_TERMCAP_so=$'\E[01;44;33m'
 export LESS_TERMCAP_ue=$'\E[0m'
 export LESS_TERMCAP_us=$'\E[01;32m'
 
-# Go environmental variables
+# Go environment variables
 export GOROOT=/usr/local/go
 export GOROOT_BOOTSTRAP=$GOROOT
-export GOPATH=/mnt/c/projects
+export GOPATH=$HOME/Projects
 export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
-export CDPATH=/mnt/c
+export CDPATH=$CDPATH:$HOME/Projects/
 
-# Docker on Windows
-export DOCKER_HOST=tcp://127.0.0.1:2375
+# Kubernetes environment variables
+export PATH=/home/marko/Projects/src/k8s.io/kubernetes/third_party/etcd:${PATH}
 
-# VcXsrv Window
-# Required for neovim clipboard. Check out https://github.com/Microsoft/WSL/issues/892
-export DISPLAY=localhost:0.0
+# etcd
+export ETCDCTL_API=3
 
-# Node.js environmental variables
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+# Kubicorn
+export KUBICORN_TRUECOLOR=true
 
-# Ruby environmental variables
-export PATH="$PATH:$HOME/.rvm/bin"
+# Rust environment variables
+export PATH=$PATH:$HOME/.cargo/bin

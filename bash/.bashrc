@@ -122,3 +122,6 @@ source ~/.bash_completions
 source ~/.bash_env
 source ~/.bash_functions
 source ~/.bash_secrets
+
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH="$PATH:$HOME/.rvm/bin"
