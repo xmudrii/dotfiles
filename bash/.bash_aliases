@@ -17,6 +17,8 @@ alias d='doctl'
 alias ktx='kubectx'
 alias kns='kubens'
 
+alias start-k8s='SERVICE_CLUSTER_IP_RANGE=10.0.1.0/24 FIRST_SERVICE_CLUSTER_IP=10.0.1.1 KUBE_DNS_SERVER_IP=10.0.1.10 $HOME/Projects/src/k8s.io/kubernetes/hack/local-up-cluster.sh'
+
 alias start-wardle='sample-apiserver --secure-port 8443 --etcd-servers http://127.0.0.1:2379 --v=9 --client-ca-file ~/Projects/src/k8s.io/apiserver/ca.crt --kubeconfig ~/.kube/config --authentication-kubeconfig ~/.kube/config --authorization-kubeconfig ~/.kube/config'
 alias wardle-apis='http --verify no https://localhost:6444/apis'
 alias wardle-flunders='http --verify=no --cert client.crt --cert-key client.key https://localhost:8443/apis/wardle.k8s.io/v1alpha1/namespaces/default/flunders'
