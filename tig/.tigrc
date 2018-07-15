@@ -1,0 +1,79 @@
+# general settings
+set commit-order = topo
+set diff-highlight = true
+set main-view	= line-number:no,interval=5 id:yes date:custom,format="%y%m%d %H:%M" author:abbreviated commit-title:yes,graph=v1,refs,overflow=no
+set main-options = --exclude=refs/stash --exclude=refs/pr
+
+# colors
+color date		27	default
+color cursor		22	  green
+color graph-commit	33	default
+color main-tag		red	default
+color main-local-tag	magenta	default
+color main-remote	cyan 	default
+color main-ref		87 	default
+color main-head		226 	default bold
+color main-tracked	39 	default
+color diff-stat		33 	default
+color "index "		cyan 	default
+color "@@"		cyan	default
+color "commit "		black	default
+color "Refs: "		cyan 	default
+color "Author: "	cyan 	default
+color "AuthorDate: "	cyan 	default
+color "Commit: "	cyan 	default
+color "CommitDate: "	cyan 	default
+
+# generic bindings
+bind generic	<C-D>	move-page-down
+bind generic	<C-U>	move-page-up
+bind generic	<PgUp> move-half-page-up
+bind generic	<PgDown> move-half-page-down
+bind generic	<Space>	move-half-page-down
+bind generic	<Ctrl-E> @goland %(file):%(lineno)
+bind generic	e	@code-insiders %(file):%(lineno)
+bind generic 	r refresh
+
+# diff bindings
+bind diff <Up> move-up 
+bind diff <Down> move-down
+bind diff <Home> :?^@@ # make home go to previous change, not the top of file
+bind diff <End> :/^@@ # make end go to next change, not the top of file
+bind diff . :toggle diff-context +1 # move up/down context
+bind diff , :toggle diff-context -1 # move up/down context
+bind diff j previous
+bind diff k next
+
+# stage bindings
+bind stage <Up> move-up
+bind stage <Down> move-down
+bind stage <Home> :?^@@ # make home go to previous change, not the top of file
+bind stage <End> :/^@@
+bind stage s stage-split-chunk
+bind stage + stage-update-line # (un)stage
+bind stage - stage-update-line # (un)stage
+bind stage . :toggle diff-context +1 # move up/down context
+bind stage , :toggle diff-context -1 # move up/down context
+bind stage y status-update # stage file (git add file)
+bind stage n :/^@@ # go to next file changed (same as <End>)
+bind stage a @git add %(file) # git add file
+bind stage d next # next line
+bind stage p !git add -p %(file) # git add -p file
+bind stage P !git add -p # git add -p all files
+
+# status bindings
+bind status p !git add -p %(file) # git add -p file
+bind status P !git add -p # git add -p all files
+bind status U !git checkout -p %(file) # discard hunk
+bind status + status-update # (un)stage
+bind status - status-update # (un)stage
+bind status r @git reset %(file) # git reset file
+bind status A @git add -u # git add modified and deleted, without new
+bind status a status-update # (un)stage
+bind status <Ctrl-A> !?git commit --amend # ammend commit where file is
+
+# main bindings
+bind main T !bash -c 'TAG="%(prompt Enter new tag name: )"; git tag "${TAG}" %(commit) || { read -n 1 -p "Force [y/n]? " X; test "$X" = "y" && git tag "${TAG}" %(commit) -f; }' # give commit new tag
+bind main ! !tig-delete.sh "%(commit)"
+bind main B !bash -xc 'B="%(prompt Enter new branch name: )"; test -z "$B" && exit 1; git branch "$B" "%(commit)" || { read -n 1 -p "Exists already. Force [y/n]? " X; test "$X" != "y" && exit 1; git branch -D "$B" && git branch -f -vv "$B" "%(commit)"; }' # goto new branch with selected commit as last one
+bind main L !bash -c "git reflog --pretty=raw | tig --pretty=raw"
