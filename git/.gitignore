@@ -1,0 +1,18 @@
+# Kubicorn
+bin/
+_state/
+
+# Editor and IDE
+.vscode
+.idea
+.vim/bundle/
+.vim/.cache/
+.vim/.netrwhist
+.vim/local_bundle
+
+# Various
+vendor/bundle/
+tmp/
+*.swp
+*.swo
+
