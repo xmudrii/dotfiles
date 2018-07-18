@@ -5,13 +5,14 @@ _state/
 # Editor and IDE
 .vscode
 .idea
-
-# Various
 .vim/bundle/
 .vim/.cache/
-tmp/
-vendor/bundle/
-*.swp
-*.swo
 .vim/.netrwhist
 .vim/local_bundle
+
+# Various
+vendor/bundle/
+tmp/
+*.swp
+*.swo
+

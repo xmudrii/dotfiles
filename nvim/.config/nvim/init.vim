@@ -71,7 +71,6 @@ set laststatus=2					" Display Status Line always
 set noerrorbells					" No beeps/bells
 set number						" Show line numbers
 set numberwidth=3					" Line number width
-set relativenumber					" Show relative line numbers
 set ignorecase						" Case insensitive search
 set smartcase						" Case sensitive search if word begins with upper case
 set nowrap						" Don't wrap long lines

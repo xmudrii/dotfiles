@@ -12,20 +12,9 @@
 [gpg]
 	program = gpg2
 
-[gitflow "prefix"]
-	versiontag = v
-
 [alias]
 	all = !git add -A && git commit -avm
 	
-	# Codereview aliases
-	change = codereview change
-	gofmt = codereview gofmt
-	mail = codereview mail
-	pending = codereview pending
-	submit = codereview submit
-	sync = codereview sync
-
 [apply]
 	# Detect whitespace errors when applying a patch
 	whitespace = fix
@@ -70,10 +59,6 @@
 	# Automatically correct and execute mistyped commands
 	autocorrect = 1
 
-[merge]
-	# Include summaries of merged commits in newly created merge commit messages
-	log = true
-
 [push]
 	# change to maching for machines with older versions of git 1.x.x
 	default = simple
@@ -97,5 +82,3 @@
 [url "git://gist.github.com/"]
 	insteadOf = "gist:"
 
-[http]
-	cookiefile = /home/marko/.gitcookies

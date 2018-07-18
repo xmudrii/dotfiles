@@ -1,23 +1,29 @@
+# Go
+export GOROOT=/usr/local/go
+export GOPATH=$HOME/Projects
+export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
+
+# Kubernetes
+export PATH=$PATH:/home/marko/Projects/src/k8s.io/kubernetes/third_party/etcd
+export SERVICE_CLUSTER_IP_RANGE=10.0.1.0/24
+export FIRST_SERVICE_CLUSTER_IP=10.0.1.1
+export KUBE_DNS_SERVER_IP=10.0.1.10
+export ETCDCTL_API=3
+
+alias k=kubectl
+alias ktx='kubectx'
+alias kns='kubens'
+
+# tmux
+alias tmuxinit="tmux new-session -n init \; split-window -dh \; select-pane -t 1 \; split-window -dv -p 80 'ctop' \; clock-mode \; select-pane -t 2 \; split-window -dv 'gotop -c monokai' \; select-pane -t 0 \; new-window -n htop 'htop' \; select-window -t 1"
+
 # Editors
-export EDITOR='nvim'
-export VISUAL='nvim'
-export PAGER='less'
+export EDITOR="code"
+export VISUAL="code"
+export PAGER="less"
 
-# Language
-if [[ -z "$LANG" ]]; then
-  export LANG='en_US.UTF-8'
-fi
-
-# ls configuration
-alias ls='ls --color -lh --group-directories-first'
-
-# less configuration
+# Improve less and support colors
 export LESS='-F -g -i -M -R -S -w -X -z-4'
-
-# Configuration home
-export XDG_CONFIG_HOME=~/.config
-
-# Colored man pages
 export LESS_TERMCAP_mb=$'\E[01;31m'
 export LESS_TERMCAP_md=$'\E[01;31m'
 export LESS_TERMCAP_me=$'\E[0m'
@@ -26,25 +32,21 @@ export LESS_TERMCAP_so=$'\E[01;44;33m'
 export LESS_TERMCAP_ue=$'\E[0m'
 export LESS_TERMCAP_us=$'\E[01;32m'
 
-# Go environmental variables
-export GOROOT=/usr/local/go
-export GOROOT_BOOTSTRAP=$GOROOT
-export GOPATH=$HOME/Projects
-export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
 
-# Kubernetes
-export PATH=/home/marko/Projects/src/k8s.io/kubernetes/third_party/etcd:${PATH}
+# cd, ls, grep
+alias l="ls -lF -h --group-directories-first --color=auto"
+alias la="ls -laF -h --color=auto"
+alias ls="ls -l -h --group-directories-first --color=auto"
+alias grep="grep -r -InH --color=auto"
+alias ..="cd .."
+alias ...="cd ../.."
+alias -- -="cd -"
+function mkd() {
+    mkdir -p "$@" && cd "$@"
+}
 
-alias start-wardle='sample-apiserver --secure-port 8443 --etcd-servers http://127.0.0.1:2379 --v=9 --client-ca-file ~/Projects/src/k8s.io/apiserver/ca.crt --kubeconfig ~/.kube/config --authentication-kubeconfig ~/.kube/config --authorization-kubeconfig ~/.kube/config'
-alias wardle-apis='http --verify no https://localhost:6444/apis'
-alias wardle-flunders='http --verify=no --cert client.crt --cert-key client.key https://localhost:8443/apis/wardle.k8s.io/v1alpha1/namespaces/default/flunders'
-alias wardle-fludner-new="http --verify no -j --cert-key client.key --cert client.crt https://localhost:8443/apis/wardle.k8s.io/v1alpha1/namespaces/default/flunders < <(python -c 'import sys, yaml, json; json.dump(yaml.load(sys.stdin), sys.stdout, indent=4)' < staging/src/k8s.io/sample-apiserver/artifacts/flunders/01-flunder.yaml)"
+# Language
+if [[ -z "$LANG" ]]; then
+  export LANG='en_US.UTF-8'
+fi
 
-alias etcdctl-all="ETCDCTL_API=3 etcdctl get / --prefix --keys-only"
-
-# Docker on Windows
-# export DOCKER_HOST=tcp://127.0.0.1:2375
-
-# VcXsrv Window
-# Required for neovim clipboard. Check out https://github.com/Microsoft/WSL/issues/892
-# export DISPLAY=localhost:0.0
