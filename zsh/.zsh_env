@@ -1,6 +1,7 @@
 # Go
 export GOROOT=/usr/local/go
 export GOPATH=$HOME/Projects
+export GO111MODULE=on
 export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
 
 # Kubernetes
@@ -18,8 +19,8 @@ alias kns='kubens'
 alias tmuxinit="tmux new-session -n init \; split-window -dh \; select-pane -t 1 \; split-window -dv -p 80 'ctop' \; clock-mode \; select-pane -t 2 \; split-window -dv 'gotop -c monokai' \; select-pane -t 0 \; new-window -n htop 'htop' \; select-window -t 1"
 
 # Editors
-export EDITOR="code"
-export VISUAL="code"
+export EDITOR="code-insiders"
+export VISUAL="code-insiders"
 export PAGER="less"
 
 # Improve less and support colors
