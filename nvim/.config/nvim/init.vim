@@ -5,37 +5,26 @@
 let g:username = "Marko @xmudrii Mudrinic"
 let g:email = "marko@xmudrii.com"
 
-set shell=bash						" avoid problems if using fish shell
-
 "
 " vim-plug (plugins)
 "
 call plug#begin('~/.nvim/plugged')
 
-Plug 'AndrewRadev/splitjoin.vim'			" gS & gJ for in-lining and breaking lines
-Plug 'SirVer/ultisnips'					" snippets in vim
+Plug 'fatih/vim-go'					" Go support for vim
 Plug 'ekalinin/Dockerfile.vim', {'for': 'Dockerfile'}	" Dockerfile vim plugin
 Plug 'elzr/vim-json', {'for': 'json'}			" Json plugin
 
-Plug 'fatih/vim-go'					" Go support for vim
+Plug 'Shougo/deoplete.nvim', {'do': ':UpdateRemotePlugins'} " Deoplete support for vim (autocompletion)
+Plug 'zchee/deoplete-go', {'do': 'make'}
 
-Plug 'plasticboy/vim-markdown'				" Vim Markdown integration
-
-Plug 'tpope/vim-fugitive'				" Git in Vim
-Plug 'airblade/vim-gitgutter'				" Git diff in Vim
-
-Plug 'tmux-plugins/vim-tmux', {'for': 'tmux'}		" tmux stuff
-
-Plug 'tpope/vim-commentary'				" comments improved: gc, gcap, gcgc, :7,17Commentary
-Plug 'tpope/vim-eunuch'					" Linux stuff inside Vim
 Plug 'scrooloose/nerdtree'				" file tree inside vim
+Plug 'tpope/vim-commentary'				" comments improved: gc, gcap, gcgc, :7,17Commentary
+Plug 'airblade/vim-gitgutter'				" Git diff in Vim
+Plug 'AndrewRadev/splitjoin.vim'			" gS & gJ for in-lining and breaking lines
 
 Plug 'flazz/vim-colorschemes'				" Various Vim themes (includes janah)
 Plug 'vim-airline/vim-airline'				" Airline status bar
 Plug 'vim-airline/vim-airline-themes'			" Airline themes
-
-Plug 'Shougo/deoplete.nvim', {'do': ':UpdateRemotePlugins'}
-Plug 'zchee/deoplete-go', {'do': 'make'}
 
 call plug#end()
 
@@ -43,9 +32,7 @@ call plug#end()
 " Initial settings
 "
 
-set nocompatible
 set noshowmode						" We show mode with airline or lightline
-set ttyfast
 set complete-=i
 set clipboard+=unnamed
 set clipboard+=unnamedplus
@@ -110,8 +97,6 @@ endfunction
 " Airline settings
 "
 
-let g:airline_left_sep = "\ue0c6"
-let g:airline_right_sep = "\ue0c7"
 let g:airline_theme = 'kolor'
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#show_tab_type = 0
@@ -126,15 +111,6 @@ let NERDTreeMinimaUI=1
 let NETDTreeWinSize=35
 let NERDTreeShowLineNumbers = 1				" Make sure that when NT root is changed, Vim's pwd is also updated
 autocmd VimEnter * if !argc() | NERDTree | endif	" Open NERDTree if no file is specified
-
-"
-" File types
-"
-
-au BufRead,BufNewFile *.md set filetype=markdown
-au BufRead,BufNewFile *.md setlocal textwidth=120
-au FileType markdown setlocal spell
-let g:vim_markdown_folding_disabled = 1
 
 "
 " Go settings
@@ -156,7 +132,7 @@ let g:go_term_enabled = 1
 "
 
 let g:deoplete#enable_at_startup = 1
-"let g:deoplete#disable_auto_complete = 0
+let g:deoplete#disable_auto_complete = 1
 let g:deoplete#enable_smart_case = 1
 call deoplete#custom#source('_', 'converters', ['converter_auto_paren'])
 let b:deoplete_ignore_sources = ['around', 'member', 'buffer']
@@ -179,39 +155,32 @@ augroup END
 
 autocmd BufEnter * silent! lcd %:p:h			" Enter automatically into the file's directory
 
-nnoremap <leader>w :w!<cr>				" Fast saving shortcuts (Leader+w, Leader+q)
-nnoremap <silent> <leader>q :q!<CR>
+nnoremap <leader>w :w!<cr>				" Fast saving shortcuts (Leader+w)
+nnoremap <silent> <leader>q :q!<CR>			" Close file without saving (Leader + q)
+nnoremap <leader>o :only<CR>				" Close all files but current one (Leader+o)
 
 nnoremap <leader><space> :nohlsearch<CR>		" Remove search highlight (Leader+<space>)
 
-nnoremap <leader>o :only<CR>				" Close all files but current one (Leader+o)
+nmap <leader>v :vsplit<CR> <C-w><C-w>			" Split window vertically (Leader+v)
+nmap <leader>s :split<CR> <C-w><C-w>			" Split window horizontally <Leader+s>
 
 map <C-j> <C-W>j					" Easier split switching (CTRL+jkhl, default: CTRL+W+jkhl)
 map <C-k> <C-W>k
 map <C-h> <C-W>h
 map <C-l> <C-W>l
 
-map <C-f> :echo expand("%s:p")<cr>			" Print full path (CTRL+f)
-
 map <leader>\ :NERDTreeToggle<cr>			" Show file tree (Leader+\)
-
 map <leader>/ :Commentary<CR>				" Comment line (Leader+/)
-
 map <leader>g :GitGutterToggle<CR>			" Toggle Git Diff (Leader+g>
-
-nmap <leader>v :vsplit<CR> <C-w><C-w>			" Split window vertically (Leader+v)
-nmap <leader>s :split<CR> <C-w><C-w>			" Split window horizontally <Leader+s>
 
 augroup go						" Gopherz
   autocmd!
 
-  autocmd FileType go nmap <silent> <leader>i <Plug>(go-info)		" Show go-info (Leader+i)
-  autocmd FileType go nmap <silent> <leader>b :<C-u>call <SID>build_go_files()<CR>
-  autocmd FileType go nmap <silent> <leader>t <Plug>(go-test)		" Run Tests (Leader+t)
-  autocmd FileType go nmap <silent> <leader>r <Plug>(go-run)		" Run (Leader+r)
-
-  autocmd FileType go nmap <silent> <leader>d <Plug>(go-doc)		" Show Docs (Leader+d)
-  autocmd FileType go nmap <silent> <leader>c <Plug>(go-coverage-toggle)	" Show Coverage (Leader+c)
+  autocmd FileType go nmap <silent> <leader>i <Plug>(go-info)		     " Show go-info (Leader+i)
+  autocmd FileType go nmap <silent> <leader>t <Plug>(go-test)		     " Run Tests (Leader+t)
+  autocmd FileType go nmap <silent> <leader>r <Plug>(go-run)		     " Run (Leader+r)
+  autocmd FileType go nmap <silent> <leader>d <Plug>(go-doc)		     " Show Docs (Leader+d)
+  autocmd FileType go nmap <silent> <leader>c <Plug>(go-coverage-toggle)     " Show Coverage (Leader+c)
 
   autocmd FileType go command! -bang A call go#alternate#Switch(<bang>0, 'edit')
   autocmd FileType go command! -bang AV call go#alternate#Switch(<bang>0, 'vsplit')
