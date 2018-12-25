@@ -1,0 +1,37 @@
+# Kubernetes
+alias k=kubectl
+alias ktx='kubectx'
+alias kns='kubens'
+
+# Common
+# Enable aliases to be sudo'ed and watch'ed
+alias sudo='sudo '
+alias watch='watch '
+
+# Editors
+alias vi="nvim"
+alias vim="nvim"
+alias nvi="nvim"
+
+# Navigation
+alias dl="cd ~/Downloads"
+alias c='cd $GOPATH/src/github.com/xmudrii'
+alias ck='cd $GOPATH/src/k8s.io'
+alias cks='cd $GOPATH/src/sigs.k8s.io'
+alias ckc='cd $GOPATH/src/github.com/kubermatic'
+
+# ls and grep
+alias l="ls -lF -h --group-directories-first --color=auto"
+alias la="ls -laF -h --group-directories-first --color=auto"
+alias ls="ls -l -h --group-directories-first --color=auto"
+alias gg="grep -r -InH --color=auto"
+
+# Get week number
+alias week='date +%V'
+
+# Get public IP address
+alias pubip="dig +short myip.opendns.com @resolver1.opendns.com"
+
+# Change hosts file
+alias hosts='sudo $EDITOR /etc/hosts'
+
