@@ -77,3 +77,4 @@ bind main T !bash -c 'TAG="%(prompt Enter new tag name: )"; git tag "${TAG}" %(c
 bind main ! !tig-delete.sh "%(commit)"
 bind main B !bash -xc 'B="%(prompt Enter new branch name: )"; test -z "$B" && exit 1; git branch "$B" "%(commit)" || { read -n 1 -p "Exists already. Force [y/n]? " X; test "$X" != "y" && exit 1; git branch -D "$B" && git branch -f -vv "$B" "%(commit)"; }' # goto new branch with selected commit as last one
 bind main L !bash -c "git reflog --pretty=raw | tig --pretty=raw"
+
