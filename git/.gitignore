@@ -2,6 +2,9 @@
 bin/
 _state/
 
+# direnv
+.envrc
+
 # Editor and IDE
 .vscode
 .idea
