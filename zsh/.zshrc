@@ -51,14 +51,13 @@ source $ZSH/oh-my-zsh.sh
 [ -f ~/.zsh_docker ] && source ~/.zsh_docker
 [ -f ~/.zsh_private ] && source ~/.zsh_private
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
 # Hide the percent sign in terminal
 setopt PROMPT_CR
 setopt PROMPT_SP
 export PROMPT_EOL_MARK=""
 
-# Auto completions
+## Auto completions
+
 # kubectl
 if kubectl --help >/dev/null 2>&1; then
   source <(kubectl completion zsh)
@@ -69,26 +68,25 @@ if doctl --help >/dev/null 2>&1; then
   source <(doctl completion zsh)
 fi
 # kubectx: https://raw.githubusercontent.com/ahmetb/kubectx/master/completion/kubectx.zsh
-if [ -f ~/.kubectx-completion.bash ]; then
-  source ~/.kubectx-completion.bash
-fi
+[ -f ~/.kubectx-completion.bash ] && source ~/.kubectx-completion.bash
 # kubens: https://raw.githubusercontent.com/ahmetb/kubectx/master/completion/kubens.zsh
-if [ -f ~/.kubens-completion.bash ]; then
-  source ~/.kubens-completion.bash
-fi
+[ -f ~/.kubens-completion.bash ] && source ~/.kubens-completion.bash
 # git-prompt: https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh
-if [ -f ~/.git-prompt.sh ]; then
-  source ~/.git-prompt.sh
-fi
+[ -f ~/.git-prompt.sh ] && source ~/.git-prompt.sh
 # git-completion: https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash
-if [ -f ~/.git-completion.bash ]; then
-  source ~/.git-completion.bash
-fi
+[ -f ~/.git-completion.bash ] && source ~/.git-completion.bash
 # fubectl: https://github.com/kubermatic/fubectl
-if [ -f ~/.fubectl.bash ]; then
-  source ~/.fubectl.bash
-fi
+[ -f ~/.fubectl.bash ] && source ~/.fubectl.bash
+# fzf
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+[ -f /usr/share/fzf/key-bindings.zsh ] && source /usr/share/fzf/key-bindings.zsh
+[ -f /usr/share/fzf/completion.zsh ] && source /usr/share/fzf/completion.zsh
+
 # nvm
+#[ -f /usr/share/nvm/init-nvm.sh ] && source /usr/share/nvm/init-nvm.sh
 #[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 #[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# direnv
 eval "$(direnv hook zsh)"
+

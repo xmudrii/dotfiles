@@ -32,7 +32,6 @@ export VISUAL="nvim"
 export PAGER="less"
 
 # fzf
-export FZF_DEFAULT_OPTS="--no-height --no-reverse"
 export FZF_CTRL_T_OPTS="--preview '(highlight -O ansi -l {} 2> /dev/null || cat {} || tree -C {}) 2> /dev/null | head -200'"
 
 # Improve less and support colors
