@@ -24,7 +24,7 @@ alias ckc='cd $GOPATH/src/github.com/kubermatic'
 alias l="ls -lF -h --group-directories-first --color=auto"
 alias la="ls -laF -h --group-directories-first --color=auto"
 alias ls="ls -l -h --group-directories-first --color=auto"
-alias gg="grep -r -InH --color=auto --exclude-dir=vendor"
+alias gg="grep -r -InH --color=auto"
 
 # cat
 alias cat="bat"

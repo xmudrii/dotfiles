@@ -67,20 +67,12 @@ fi
 if doctl --help >/dev/null 2>&1; then
   source <(doctl completion zsh)
 fi
-# kubectx: https://raw.githubusercontent.com/ahmetb/kubectx/master/completion/kubectx.zsh
-[ -f ~/.kubectx-completion.bash ] && source ~/.kubectx-completion.bash
-# kubens: https://raw.githubusercontent.com/ahmetb/kubectx/master/completion/kubens.zsh
-[ -f ~/.kubens-completion.bash ] && source ~/.kubens-completion.bash
-# git-prompt: https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh
-[ -f ~/.git-prompt.sh ] && source ~/.git-prompt.sh
 # git-completion: https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash
 [ -f ~/.git-completion.bash ] && source ~/.git-completion.bash
 # fubectl: https://github.com/kubermatic/fubectl
-[ -f ~/.fubectl.bash ] && source ~/.fubectl.bash
+[ -f ~/.fubectl.source ] && source ~/.fubectl.source
 # fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-[ -f /usr/share/fzf/key-bindings.zsh ] && source /usr/share/fzf/key-bindings.zsh
-[ -f /usr/share/fzf/completion.zsh ] && source /usr/share/fzf/completion.zsh
 
 # nvm
 #[ -f /usr/share/nvm/init-nvm.sh ] && source /usr/share/nvm/init-nvm.sh
