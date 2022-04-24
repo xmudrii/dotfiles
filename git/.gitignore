@@ -1,9 +1,15 @@
+# KubeOne
+kubeone.yaml
+
 # Kubicorn
 bin/
 _state/
 
 # direnv
 .envrc
+
+# Terraform
+.terraform.lock.hcl
 
 # Editor and IDE
 .vscode
