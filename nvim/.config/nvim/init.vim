@@ -133,7 +133,6 @@ let g:go_term_enabled = 1
 
 let g:deoplete#enable_at_startup = 1
 let g:deoplete#disable_auto_complete = 1
-let g:deoplete#enable_smart_case = 1
 call deoplete#custom#source('_', 'converters', ['converter_auto_paren'])
 let b:deoplete_ignore_sources = ['around', 'member', 'buffer']
 
