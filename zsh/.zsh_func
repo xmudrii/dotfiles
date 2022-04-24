@@ -53,3 +53,10 @@ tre() {
 	tree -aC -I '.git|vendor' --dirsfirst "$@" | less -FRNX
 }
 
+bastion() {
+	cat $(pwd)/terraform.tfstate | jq .outputs.kubeone_hosts.value.control_plane.bastion
+}
+
+pl() {
+	kubectl logs -n default -f -c test -l "prow.k8s.io/build-id=$1"
+}

@@ -18,7 +18,10 @@ alias dl="cd ~/Downloads"
 alias c='cd $GOPATH/src/github.com/xmudrii'
 alias ck='cd $GOPATH/src/k8s.io'
 alias cks='cd $GOPATH/src/sigs.k8s.io'
-alias ckc='cd $GOPATH/src/github.com/kubermatic'
+alias ckc='cd $GOPATH/src/k8c.io'
+alias ckcc='cd $GOPATH/src/github.com/kubermatic'
+alias sb='cd ~/Fakultet/SoftverskoInzenjerstvo/Banka-Back'
+alias sf='cd ~/Fakultet/SoftverskoInzenjerstvo/banka-front'
 
 # ls and grep
 alias l="ls -lF -h --group-directories-first --color=auto"
