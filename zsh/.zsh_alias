@@ -13,6 +13,9 @@ alias vi="nvim"
 alias vim="nvim"
 alias nvi="nvim"
 
+# Python
+alias python="python3"
+
 # Navigation
 alias dl="cd ~/Downloads"
 alias c='cd $GOPATH/src/github.com/xmudrii'
@@ -20,8 +23,6 @@ alias ck='cd $GOPATH/src/k8s.io'
 alias cks='cd $GOPATH/src/sigs.k8s.io'
 alias ckc='cd $GOPATH/src/k8c.io'
 alias ckcc='cd $GOPATH/src/github.com/kubermatic'
-alias sb='cd ~/Fakultet/SoftverskoInzenjerstvo/Banka-Back'
-alias sf='cd ~/Fakultet/SoftverskoInzenjerstvo/banka-front'
 
 # ls and grep
 alias l="ls -lF -h --group-directories-first --color=auto"
@@ -40,4 +41,5 @@ alias pubip="dig +short myip.opendns.com @resolver1.opendns.com"
 
 # Change hosts file
 alias hosts='sudo $EDITOR /etc/hosts'
+
 

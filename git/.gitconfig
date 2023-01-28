@@ -10,22 +10,13 @@
 	gpgsign = true
 
 [gpg]
-	program = gpg2
+	program = gpg
+	format = x509
 
 [alias]
-	# Commit all changes on the tree
-	a = !git add -A && git commit -avm
-	all = !git add -A && git commit -avm
-
 	# Amend the currently staged files to the latest commit
 	amend = commit --amend --reuse-message=HEAD
 
-	# Undo work
-	undo = !git reset HEAD~1 --mixed
-
-	# Remove branches that have already been merged with master
-	dm = "!git branch --merged | grep -v '\\*' | xargs -n 1 git branch -d; git remote -v update -p"
-	
 	# View the current working tree status using the short format
 	s = status -s
 	
@@ -99,3 +90,9 @@
 
 [fetch]
 	prune = true
+
+[tag]
+	gpgsign = true
+
+[gpg "x509"]
+	program = gitsign

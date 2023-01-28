@@ -1,5 +1,13 @@
 # Path to your oh-my-zsh installation.
-export ZSH="/home/marko/.oh-my-zsh"
+export ZSH="/Users/marko/.oh-my-zsh"
+
+# Homebrew
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
+# Use GNU tools
+export PATH="/opt/homebrew/opt/coreutils/libexec/gnubin:$PATH"
+export PATH=/opt/homebrew/opt/curl/bin:$PATH
+export PATH="/opt/homebrew/opt/gawk/libexec/gnubin:$PATH"
 
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
@@ -47,17 +55,13 @@ fi
 if doctl --help >/dev/null 2>&1; then
   source <(doctl completion zsh)
 fi
-# git-completion: https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash
-[ -f ~/.git-completion.bash ] && source ~/.git-completion.bash
+
 # fubectl: https://github.com/kubermatic/fubectl
 [ -f ~/.fubectl.source ] && source ~/.fubectl.source
-# fzf
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-# nvm
-[ -f /usr/share/nvm/init-nvm.sh ] && source /usr/share/nvm/init-nvm.sh
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+# fzf
+source /opt/homebrew/Cellar/fzf/*/shell/key-bindings.zsh
+source /opt/homebrew/Cellar/fzf/*/shell/completion.zsh
 
 # direnv
 eval "$(direnv hook zsh)"

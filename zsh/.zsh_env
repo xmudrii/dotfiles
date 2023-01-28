@@ -3,34 +3,15 @@ export GOROOT=/usr/local/go
 export GOPATH=$HOME/Projects
 export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
 
+# Vault
+export VAULT_ADDR=
+
 # Krew
 export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
-
-# Kubebuilder
-export PATH=$PATH:/usr/local/kubebuilder/bin
-
-# Etcd
-export PATH=$PATH:/home/marko/Projects/src/k8s.io/kubernetes/third_party/etcd
-export ETCDCTL_API=3
-
-# Bazel
-export PATH=$PATH:$HOME/bin
-
-# npm
-export PATH=$PATH:~/.npm-global/bin
 
 # fzf
 export FZF_DEFAULT_OPTS="--height 40% --layout=reverse --border"
 export FZF_CTRL_T_OPTS="--preview '(highlight -O ansi -l {} 2> /dev/null || cat {} || tree -C {}) 2> /dev/null | head -200'"
-
-# Snap
-export PATH=$PATH:/snap/bin
-
-# nvm
-export NVM_DIR="$HOME/.nvm"
-
-# Maven
-export PATH=$PATH:/usr/local/apache-maven/bin
 
 # Languages
 export LANG="en_US.UTF-8";
@@ -40,6 +21,11 @@ export LC_ALL="en_US.UTF-8";
 export EDITOR="nvim"
 export VISUAL="nvim"
 export PAGER="less"
+
+# History
+setopt HIST_IGNORE_ALL_DUPS
+export HISTSIZE=100000
+export SAVHIST=$HISTSIZE
 
 # Improve less and support colors
 export LESS='-F -g -i -M -R -S -w -X -z-4'
